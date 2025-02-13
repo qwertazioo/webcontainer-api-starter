@@ -1,5 +1,5 @@
 import './style.css'
-import { WebContainer } from '@webcontainer/api';
+import { WebContainer } from "https://cdn.jsdelivr.net/npm/@webcontainer/api@1.5.1-internal.9/+esm"
 import { files } from './files';
 
 /** @type {import('@webcontainer/api').WebContainer}  */
