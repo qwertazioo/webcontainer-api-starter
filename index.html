@@ -20,7 +20,7 @@ import webcontainer from 'https://cdn.jsdelivr.net/npm/@webcontainer/api@1.5.1-i
   startDevServer();
 });
 
-async function installDependencies() {
+
   // install dependencies
   const installProcess = await webcontainer.spawn("npm", ["install"]);
 
@@ -33,10 +33,7 @@ async function installDependencies() {
   );
 
   // wait for install command to exit
-  return installProcess.exit;
-}
-
-async function startDevServer() {
+   installProcess.exit;
   // run `npm run start` to start the express app
   await webcontainer.spawn("npm", ["run", "start"]);
 
@@ -44,5 +41,6 @@ async function startDevServer() {
   webcontainer.on("server-ready", (port, url) => {
     iframe.src = url;
   });
-}</script> </body>
+  
+</script> </body>
 </html>
