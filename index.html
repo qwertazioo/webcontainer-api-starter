@@ -3,38 +3,13 @@
   <body>
     
 <script type="module">
-import webcontainerapi from 'https://cdn.jsdelivr.net/npm/@webcontainer/api@1.5.1-internal.9/+esm'
-  
-const files: FileSystemTree = {
-  "index.js": {
-    file: {
-      contents: "",
-    },
-  },
-};
+import webcontainer from 'https://cdn.jsdelivr.net/npm/@webcontainer/api@1.5.1-internal.9/+esm'
 
-let webcontainer: WebContainer;
-
-// add a textarea (the editor) and an iframe (a preview window) to the document
-
-// the editor
-const textarea = document.querySelector("textarea");
-
-// the preview window
-const iframe = document.querySelector("iframe");
-
-window.addEventListener("load", async () => {
-  textarea.value = files["index.js"].file.contents;
-
-  textarea.addEventListener("input", (event) => {
-    const content = event.currentTarget.value;
-    webcontainer.fs.writeFile("/index.js", content);
-  });
 
   // call only once
   webcontainer = await WebContainer.boot();
 
-  await webcontainer.mount(files);
+ 
 
   const exitCode = await installDependencies();
 
